@@ -1,0 +1,45 @@
+version: '3'
+services:
+  web:
+    build: ./Docker/web
+    container_name: word-web
+    depends_on:
+      - mysql
+      - pgsql
+    ports:
+      - 8000:80
+    volumes:
+      - ./src:/var/www/html
+      - ./Docker/web/config/sites-available:/etc/apache2/sites-available
+  
+#   mysql: 
+#     image: mysql:8
+#     container_name: db-mysql
+#     ports:
+#       - 3306:3306
+#     environment:
+#       MYSQL_ROOT_PASSWORD: password
+#       MYSQL_DATABASE: word
+#       MYSQL_USER: root
+#       MYSQL_PASSWORD: password
+#     volumes:
+#       - mysql-db:/var/lib/mysql
+    
+#   pgsql:
+#     image: postgres:13
+#     container_name: db-pgsql
+#     ports:
+#       - 5432:5432
+#     volumes:
+#       - pgsql-db:/var/lib/postgresql/data
+#     environment:
+#       POSTGRES_DB: word
+#       POSTGRES_USER: root
+#       POSTGRES_PASSWORD: password
+#       POSTGRES_INITDB_ARGS: "--encoding=UTF-8"
+
+# volumes:
+#   mysql-db:
+#     driver: local
+#   pgsql-db:
+#     driver: local
