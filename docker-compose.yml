@@ -3,9 +3,9 @@ services:
   web:
     build: ./Docker/web
     container_name: word-web
-    depends_on:
-      - mysql
-      - pgsql
+    # depends_on:
+    #   - mysql
+    #   - pgsql
     ports:
       - 8000:80
     volumes:
