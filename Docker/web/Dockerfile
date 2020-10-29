@@ -23,3 +23,4 @@ RUN mecab-ipadic-neologd/bin/install-mecab-ipadic-neologd -y
 # apacheのrewriteを有効にする
 RUN cd /etc/apache2/mods-enabled \
     && ln -s ../mods-available/rewrite.load
+RUN a2enmod rewrite
