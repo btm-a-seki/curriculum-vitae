@@ -50,5 +50,7 @@ if (file_exists(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php'))
 	require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
 }
 
-$routes->get('/curriculum-vitae/(:name)', 'CurriculumVitae::show/$1');
-$routes->post('/curriculum-vitae', 'CurriculumVitae::update');
+// 職務経歴書解析
+// $routes->get('/curriculum-vitae/(:name)', 'CurriculumVitae::show/$1');
+// $routes->post('/curriculum-vitae', 'CurriculumVitae::update');
+$routes->post('/curriculum-vitae/calc', 'CurriculumVitae::calc');
